@@ -1,0 +1,34 @@
+{
+  "name": "Scientia",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "A smart extension to enhance your learning process.",
+  "browser_action": {
+    "default_icon": "ic_launcher.png",
+    "default_popup": "html/popup.html"
+  },
+  "options_page": "html/options.html",
+  "permissions": [
+    "contextMenus",
+    "notifications",
+    "tabs", "http://*/*",
+    "http://www.theheck.square7.ch/"
+    
+  ],
+  "icons": {
+    "16": "ic_launcher.png"
+  },
+  "background": {
+    "scripts": ["js/context.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*"],
+      "css": ["css/sc_style.css"],
+      "js": ["js/lib/jquery.js", "js/context_script.js"]
+    }
+  ],
+  "web_accessible_resources": [
+  	"/html/form_new_record.html"
+  ]
+}
