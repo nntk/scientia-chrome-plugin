@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+
+#sc_container {
+	width:100%;
+	height:300px;
+	position:fixed;
+	bottom:0;
+	background-color:rgba(0,0,0,0.3);
+	padding:15px;
+	z-index: 100;
+	resize: both;
+}
