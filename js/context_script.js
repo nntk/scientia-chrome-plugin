@@ -1,3 +1,8 @@
+var USER = "admin";
+var HOST = "http://www.theheck.square7.ch/index.php";
+var USER_POOL = HOST + "?username=" + USER;
+var PASSWORD = "asdf123";
+
 var xhr = new XMLHttpRequest();
 xhr.open("GET", chrome.extension.getURL('/html/form_new_record.html'), true);
 xhr.onreadystatechange = function() {
@@ -6,9 +11,9 @@ xhr.onreadystatechange = function() {
 		$('#new_record').submit(function(){
 			$.ajax({
 				type: "POST",
-				url: "http://www.theheck.square7.ch/index.php?username=admin",
+				url: USER_POOL,
 				dataType: "plain/text",
-				data: {func:"select", password:"asdf123", q:$('#question').value(), a:$('answere').value()}
+				data: {func:"insert", password:PASSWORD, q:$('#question').value(), a:$('answere').value()}
 			}).done(function(ret){
 				
 			});
@@ -24,12 +29,11 @@ if(e.which == 121){
 	
 	$.ajax({
 		type: "POST",
-		url: "http://www.theheck.square7.ch/index.php?username=admin",
+		url: USER_POOL,
 		dataType: "json",
-		data: {func:"select", password:"asdf123"}
+		data: {func:"select", password:PASSWORD}
 	}).done(function(ret){
-		var json = jQuery.parseJSON(ret);
-		alert(json.q);
+		ret.a;
 	});
 }}
 , false);
